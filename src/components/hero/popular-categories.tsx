@@ -9,7 +9,7 @@ const PopularCategories = () => {
       <h1 className="md:text-4xl sm:text-3xl text-2xl font-bold leading-none">
         Popular Job Categories
       </h1>
-      <div className="grid grid-cols-layout-450 gap-8 py-12">
+      <div className="grid grid-cols-layout-400 gap-8 py-12">
         <CategoryExcerpt title="Developement" icon={<Code />} />
         <CategoryExcerpt title="Marketing" icon={<Code />} />
         <CategoryExcerpt title="UX/UI Design" icon={<Code />} />
