@@ -2,26 +2,192 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent-green: 164 99% 38%;
+    --accent-blue: 209 57% 17%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 215 20.2% 65.1%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 3%;
+    --foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 15%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --popover: 222.2 84% 3%;
+    --popover-foreground: 210 40% 98%;
+
+    --card: 222.2 84% 3%;
+    --card-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 15%;
+    --input: 217.2 32.6% 15%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 15%;
+    --secondary-foreground: 210 40% 98%;
+
+    --accent: 217.2 32.6% 15%;
+    --accent-foreground: 210 40% 98%;
+    --accent-green: 94 96% 64%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+
+    --ring: 217.2 32.6% 15%;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Hero */
+.hero,
+.light-accent {
+  position: relative;
+  z-index: 1;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: -10%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("/bg-pattern.png") no-repeat center center / cover;
+  z-index: -1;
+}
+
+.light-accent::after {
+  content: "";
+  position: absolute;
+  top: 5rem;
+  right: -30%;
+  width: 100%;
+  height: 100%;
+  background: url("/light-accent.png") no-repeat center center;
+  z-index: -1;
+}
+
+
+/* Keyframes */
+.bounce {
+  animation: bounce 7s var(--transition) infinite;
+}
+
+@keyframes bounce {
+  0% {
+    top: 0;
+    opacity: 1;
+  }
+
+
+  25% {
+    top: -2.5px;
+    opacity: 1;
+  }
+
+  50% {
+    top: 100%;
+    opacity: 0;
+  }
+
+  60% {
+    opacity: 1;
+    top: -2.5px;
+  }
+
+  70% {
+    top: -2.5px;
+  }
+
+  80% {
+    top: -2.5px;
+  }
+
+  90% {
+    top: -2.5px;
+  }
+
+  91% {
+    top: -0.5px;
+  }
+
+  92% {
+    top: -2.5px;
+  }
+
+  93% {
+    top: -0.5px;
+  }
+
+  94% {
+    top: -2.5px;
+  }
+
+  95% {
+    top: -0.5px;
+  }
+
+  96% {
+    top: -2.5px;
+  }
+
+  97% {
+    top: -0.5px;
+  }
+
+  98% {
+    top: -2.5px;
+  }
+
+  99% {
+    top: -0.5px;
+  }
+
+  100% {
+    opacity: 1;
+    top: -2.5px;
+  }
 }
